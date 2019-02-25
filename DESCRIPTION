@@ -1,0 +1,16 @@
+Package: conmediator
+Title: Assess robustness of a causal mediation inference to the inclusion of an alternative mediator as a potential confounder
+Version: 0.0.0.9000
+Authors@R: c(person("Qinyun", "Lin", email = "linqinyu@msu.edu", role = c("aut", "cre")),person("Xukun", "Xiang", email = "xiangxuk@msu.edu", role = "aut"),person("Amy K.", "Nuttall", role = "ctb"),person("Kenneth A.", "Frank", role = "ctb"),person("Qian", "Zhang", role = "ctb"))
+Description: Assess robustness of a causal mediation inference to the inclusion of an alternative causally related mediator as a potential confounder.
+Depends: R (>= 3.0.0)
+License: GPL(>=2)
+Encoding: UTF-8
+LazyData: true
+Imports: 
+  stats,
+  ggplot2,
+  tidyr,
+  scales,
+  rlang
+RoxygenNote: 6.1.1.9000

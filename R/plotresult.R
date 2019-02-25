@@ -1,6 +1,6 @@
-#' sensitivity plot for cross-sectional percentage of bias with regards to correlation between X and Mu
+#' sensitivity plot for percentage of bias with regards to correlation between X and Mu
 #'
-#' give the sensitivity plot for how the correlation between X and Mu affects the percentage of bias in cross-sectional model
+#' give the sensitivity plot for how the correlation between X and Mu affects the percentage of bias
 #'
 #' @param rxmo correlation between X and Mo
 #' @param rxy correlation between X and Y
@@ -8,7 +8,7 @@
 #' @param rmomu correlation between Mo and Mu
 #' @param rymu correlation between Y and Mu
 #'
-#' @return plot for how rxmu affects the percentage of bias in cross-sectional model
+#' @return plot for how rxmu affects the percentage of bias
 #' @import ggplot2
 #' @import scales
 #' @export
@@ -57,9 +57,9 @@ rxmu <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2){
   return(figure)
 }
 
-#' sensitivity plot for cross-sectional percentage of bias with regards to correlation between Mo and Mu
+#' sensitivity plot for percentage of bias with regards to correlation between Mo and Mu
 #'
-#' give the sensitivity plot for how the correlation between Mo and Mu affects the percentage of bias in cross-sectional model
+#' give the sensitivity plot for how the correlation between Mo and Mu affects the percentage of bias
 #'
 #' @param rxmo correlation between X and Mo
 #' @param rxy correlation between X and Y
@@ -67,7 +67,7 @@ rxmu <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2){
 #' @param rxmu correlation between X and Mu
 #' @param rymu correlation between Y and Mu
 #'
-#' @return plot for how rmomu affects the percentage of bias in cross-sectional model
+#' @return plot for how rmomu affects the percentage of bias
 #' @import ggplot2
 #' @import scales
 #' @export
@@ -116,9 +116,9 @@ rmomu <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2){
   return(figure)
 }
 
-#' sensitivity plot for cross-sectional percentage of bias with regards to correlation between Y and Mu
+#' sensitivity plot for percentage of bias with regards to correlation between Y and Mu
 #'
-#' give the sensitivity plot for how the correlation between Y and Mu affects the percentage of bias in cross-sectional model
+#' give the sensitivity plot for how the correlation between Y and Mu affects the percentage of bias
 #'
 #' @param rxmo correlation between X and Mo
 #' @param rxy correlation between X and Y
@@ -126,7 +126,7 @@ rmomu <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2){
 #' @param rxmu correlation between X and Mu
 #' @param rmomu correlation between Mo and Mu
 #'
-#' @return plot for how rmomu affects the percentage of bias in cross-sectional model
+#' @return plot for how rymu affects the percentage of bias
 #' @import ggplot2
 #' @import scales
 #' @export

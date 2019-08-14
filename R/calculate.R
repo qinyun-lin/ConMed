@@ -151,3 +151,57 @@ cal_bias_c_perc <- function(rxmo,rxmu,rmomu,rxy,rymo,rymu){
     ((rxy-rxmo*rymo)*(1+2*rmomu*rxmu*rxmo-rmomu^2-rxmu^2-rxmo^2))
   return(bias_c_perc)
 }
+
+#' calculate bias of a1 from correlations
+#'
+#' calculate bias of a1 as a function of correlations
+#'
+#' @param rxmo correlation between X and Mo
+#' @param rxmu correlation between X and Mu
+#' @param rmomu correlation between Mo and Mu
+#'
+#' @return the value of bias of a1
+#' @export
+cal_bias_a1 <- function(rxmo,rxmu,rmomu){
+  bias_a1 <- rxmu*(rmomu-rxmo*rxmu)/(1-rxmu^2)
+  return(bias_a1)
+}
+
+#' calculate bias of b1 from correlations
+#'
+#' calculate bias of b1 as a function of correlations
+#'
+#' @param rxmo correlation between X and Mo
+#' @param rxmu correlation between X and Mu
+#' @param rmomu correlation between Mo and Mu
+#' @param rxy correlation between X and Y
+#' @param rymo correlation between Y and Mo
+#' @param rymu correlation between Y and Mu
+#'
+#' @return the value of bias of b1
+#' @export
+cal_bias_b1 <- function(rxmo,rxmu,rmomu,rxy,rymo,rymu){
+  bias_b1 <- ((rmomu-rxmo*rxmu)*(rymu+rymo*rxmu*rxmo+rxy*rmomu*rxmo-rymu*rxmo^2-rymo*rmomu-rxy*rxmu))/
+    ((1-rxmo^2)*(1+2*rmomu*rxmu*rxmo-rmomu^2-rxmu^2-rxmo^2))
+  return(bias_b1)
+}
+
+
+#' calculate bias of c from correlations
+#'
+#' calculate bias of c as a function of correlations
+#'
+#' @param rxmo correlation between X and Mo
+#' @param rxmu correlation between X and Mu
+#' @param rmomu correlation between Mo and Mu
+#' @param rxy correlation between X and Y
+#' @param rymo correlation between Y and Mo
+#' @param rymu correlation between Y and Mu
+#'
+#' @return the value of bias of c
+#' @export
+cal_bias_c <- function(rxmo,rxmu,rmomu,rxy,rymo,rymu){
+  bias_c <- ((rxmu-rmomu*rxmo)*(rymu+rymo*rxmu*rxmo+rxy*rmomu*rxmo-rymu*rxmo^2-rymo*rmomu-rxy*rxmu))/
+    ((1-rxmo^2)*(1+2*rmomu*rxmu*rxmo-rmomu^2-rxmu^2-rxmo^2))
+  return(bias_c)
+}

@@ -2,9 +2,10 @@
 % Please edit documentation in R/dataresult.R
 \name{rymu_data}
 \alias{rymu_data}
-\title{how the percentage of bias with regards to correlation between Y and Mu}
+\title{how the estimate and confidence interval change with regards to correlation between Y and Mu}
 \usage{
-rymu_data(rxmo = -2, rxy = -2, rymo = -2, rxmu = -2, rmomu = -2)
+rymu_data(rxmo = -2, rxy = -2, rymo = -2, rxmu = -2, rmomu = -2,
+  nobs = 0, conflevel = 0.95)
 }
 \arguments{
 \item{rxmo}{correlation between X and Mo}
@@ -16,10 +17,14 @@ rymu_data(rxmo = -2, rxy = -2, rymo = -2, rxmu = -2, rmomu = -2)
 \item{rxmu}{correlation between X and Mu}
 
 \item{rmomu}{correlation between Mo and Mu}
+
+\item{nobs}{number of observations in the sample or sample size}
+
+\item{conflevel}{confidence interval level, default is 0.95}
 }
 \value{
-result for how rymu affects the percentage of bias
+result for how rymu affects the estimates
 }
 \description{
-give the result for how the correlation between Y and Mu affects the percentage of bias
+give the result for how the estimate and confidence interval change with regards to correlation between Y and Mu
 }

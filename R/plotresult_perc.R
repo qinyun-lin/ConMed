@@ -46,14 +46,14 @@ rxmu_plot_perc <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2){
   result$Parameter <- as.factor(result$Parameter)
   result$rxmu <- as.numeric(as.character(result$rxmu))
   result$Bias <- as.numeric(as.character(result$Bias))
-  figure <- ggplot(result, (aes(rxmu, result$Bias, linetype = result$Parameter,colour = result$Parameter,shape = result$Parameter))) +
-    geom_line() +
-    geom_point() +
-    scale_y_continuous(labels = scales::percent_format(accuracy = 1))+
-    scale_colour_discrete("") +
-    scale_linetype_manual("", values=c(1,2,3)) +
-    scale_shape_manual("", values=c(16,17,18)) +
-    labs(y="Percent of bias")
+  figure <- ggplot2::ggplot(result, (ggplot2::aes(rxmu, result$Bias, linetype = result$Parameter,colour = result$Parameter,shape = result$Parameter))) +
+    ggplot2::geom_line() +
+    ggplot2::geom_point() +
+    ggplot2::scale_y_continuous(labels = scales::percent_format(accuracy = 1))+
+    ggplot2::scale_colour_discrete("") +
+    ggplot2::scale_linetype_manual("", values=c(1,2,3)) +
+    ggplot2::scale_shape_manual("", values=c(16,17,18)) +
+    ggplot2::labs(y="Percent of bias")
   return(figure)
 }
 
@@ -105,14 +105,14 @@ rmomu_plot_perc <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2){
   result$Parameter <- as.factor(result$Parameter)
   result$rmomu <- as.numeric(as.character(result$rmomu))
   result$Bias <- as.numeric(as.character(result$Bias))
-  figure <- ggplot(result, (aes(rmomu,result$Bias, linetype = result$Parameter,colour = result$Parameter,shape = result$Parameter))) +
-    geom_line() +
-    geom_point() +
-    scale_y_continuous(labels = scales::percent_format(accuracy = 1))+
-    scale_colour_discrete("") +
-    scale_linetype_manual("", values=c(1,2,3)) +
-    scale_shape_manual("", values=c(16,17,18)) +
-    labs(y="Percent of bias")
+  figure <- ggplot2::ggplot(result, (ggplot2::aes(rmomu,result$Bias, linetype = result$Parameter,colour = result$Parameter,shape = result$Parameter))) +
+    ggplot2::geom_line() +
+    ggplot2::geom_point() +
+    ggplot2::scale_y_continuous(labels = scales::percent_format(accuracy = 1))+
+    ggplot2::scale_colour_discrete("") +
+    ggplot2::scale_linetype_manual("", values=c(1,2,3)) +
+    ggplot2::scale_shape_manual("", values=c(16,17,18)) +
+    ggplot2::labs(y="Percent of bias")
   return(figure)
 }
 
@@ -164,14 +164,14 @@ rymu_plot_perc <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rmomu=-2){
   result$Parameter <- as.factor(result$Parameter)
   result$rymu <- as.numeric(as.character(result$rymu))
   result$Bias <- as.numeric(as.character(result$Bias))
-  figure <- ggplot(result, (aes(rymu, result$Bias, linetype = result$Parameter,colour = result$Parameter,shape = result$Parameter))) +
-    geom_line() +
-    geom_point() +
-    scale_y_continuous(labels = scales::percent_format(accuracy = 1))+
-    scale_colour_discrete("") +
-    scale_linetype_manual("", values=c(1,2,3)) +
-    scale_shape_manual("", values=c(16,17,18)) +
-    labs(y="Percent of bias")
+  figure <- ggplot2::ggplot(result, (ggplot2::aes(rymu, result$Bias, linetype = result$Parameter,colour = result$Parameter,shape = result$Parameter))) +
+    ggplot2::geom_line() +
+    ggplot2::geom_point() +
+    ggplot2::scale_y_continuous(labels = scales::percent_format(accuracy = 1))+
+    ggplot2::scale_colour_discrete("") +
+    ggplot2::scale_linetype_manual("", values=c(1,2,3)) +
+    ggplot2::scale_shape_manual("", values=c(16,17,18)) +
+    ggplot2::labs(y="Percent of bias")
   return(figure)
 }
 

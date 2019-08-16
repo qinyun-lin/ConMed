@@ -32,7 +32,7 @@ rxmu_data <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, conflevel
     a2 <- cal_a2(rxmu)
     b2 <- cal_b2(rxmo,rxmu,rmomu,rxy,rymo,rymu)
     k <- cal_k(rxmo,rxmu,rmomu)
-    z <- qnorm((1-conflevel)/2)
+    z <- stats::qnorm((1-conflevel)/2)
     #calculate and record the new estimate, se and confidence interval if the standardization constraint is fulfilled
     if (constrain_standardized(a1,a2,b1,b2,k,c)) {
       ind1 <- a1*b1
@@ -105,7 +105,7 @@ rmomu_data <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, conflevel
     a2 <- cal_a2(rxmu)
     b2 <- cal_b2(rxmo,rxmu,rmomu,rxy,rymo,rymu)
     k <- cal_k(rxmo,rxmu,rmomu)
-    z <- qnorm((1-conflevel)/2)
+    z <- stats::qnorm((1-conflevel)/2)
     #calculate and record the new estimate, se and confidence interval if the standardization constraint is fulfilled
     if (constrain_standardized(a1,a2,b1,b2,k,c)) {
       ind1 <- a1*b1
@@ -177,7 +177,7 @@ rymu_data <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rmomu=-2, nobs=0, conflevel
     a2 <- cal_a2(rxmu)
     b2 <- cal_b2(rxmo,rxmu,rmomu,rxy,rymo,rymu)
     k <- cal_k(rxmo,rxmu,rmomu)
-    z <- qnorm((1-conflevel)/2)
+    z <- stats::qnorm((1-conflevel)/2)
     #calculate and record the new estimate, se and confidence interval if the standardization constraint is fulfilled
     if (constrain_standardized(a1,a2,b1,b2,k,c)) {
       ind1 <- a1*b1

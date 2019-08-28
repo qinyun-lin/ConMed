@@ -10,5 +10,6 @@ LazyData: true
 Imports: 
   stats,
   ggplot2,
-  scales
+  scales,
+  ggpubr
 RoxygenNote: 6.1.1.9000

@@ -49,6 +49,16 @@ rxmu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, labe
       ggplot2::geom_hline(yintercept=result_c$est.omit,linetype="dashed") +
       ggplot2::labs(y="direct effect c")
   }
+  if (labelest == "a1b1indirect1") {
+    result_a1b1ind <- result[result$label!="c",]
+    figure <- ggplot2::ggplot(result_a1b1ind[c(T,rep(F,40)),],
+                              ggplot2::aes_string(x='rxmu', y='est', lty='label', shape='label', color='label')) +
+      ggplot2::geom_point(size=1.7)+
+      ggplot2::geom_line(size=0.6)+
+      ggplot2::geom_ribbon(data=result[result$label=="indirect1",],ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
+      ggplot2::geom_hline(yintercept=result[result$label=="indirect1",]$est.omit,linetype="dashed") +
+      ggplot2::labs(y="indirect effect")
+  }
   return(figure)
 }
 
@@ -72,9 +82,11 @@ rxmu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", c
     plow <- rxmu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rmomu=0.1,rymu=0.1, nobs=nobs, labelest = labelest, conflevel=conflevel)
     pmedium <- rxmu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rmomu=0.3,rymu=0.3, nobs=nobs, labelest = labelest, conflevel=conflevel)
     phigh <- rxmu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rmomu=0.5,rymu=0.5, nobs=nobs, labelest = labelest, conflevel=conflevel)
-    figure <- ggpubr::ggarrange(plow, pmedium, phigh,
-                                labels = c("Low", "Medium", "High"),
-                                ncol = 1, nrow = 3)
+    plowhigh <- rxmu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rmomu=0.1,rymu=0.5, nobs=nobs, labelest = labelest, conflevel=conflevel)
+    phighlow <- rxmu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rmomu=0.5,rymu=0.1, nobs=nobs, labelest = labelest, conflevel=conflevel)
+    figure <- ggpubr::ggarrange(plow, pmedium, phigh, plowhigh, phighlow,
+                                labels = c("Low", "Medium", "High", "Low rmomu & High rymu", "High rmomu & Low rymu"),
+                                ncol = 1, nrow = 5)
   }
    if (specifyunob == 1) {
      figure <- rxmu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rmomu=rmomu,rymu=rymu, nobs=nobs, labelest = labelest, conflevel=conflevel)
@@ -134,6 +146,16 @@ rmomu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, labe
       ggplot2::geom_hline(yintercept=result_c$est.omit,linetype="dashed") +
       ggplot2::labs(y="direct effect c")
   }
+  if (labelest == "a1b1indirect1") {
+    result_a1b1ind <- result[result$label!="c",]
+    figure <- ggplot2::ggplot(result_a1b1ind[c(T,rep(F,40)),],
+                              ggplot2::aes_string(x='rmomu', y='est', lty='label', shape='label', color='label')) +
+      ggplot2::geom_point(size=1.7)+
+      ggplot2::geom_line(size=0.6)+
+      ggplot2::geom_ribbon(data=result[result$label=="indirect1",],ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
+      ggplot2::geom_hline(yintercept=result[result$label=="indirect1",]$est.omit,linetype="dashed") +
+      ggplot2::labs(y="indirect effect")
+  }
   return(figure)
 }
 
@@ -157,9 +179,11 @@ rmomu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", 
     plow <- rmomu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.0995,rymu=0.1, nobs=nobs, labelest = labelest, conflevel=conflevel)
     pmedium <- rmomu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.2425,rymu=0.3, nobs=nobs, labelest = labelest, conflevel=conflevel)
     phigh <- rmomu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.3713,rymu=0.5, nobs=nobs, labelest = labelest, conflevel=conflevel)
-    figure <- ggpubr::ggarrange(plow, pmedium, phigh,
-                                labels = c("Low", "Medium", "High"),
-                                ncol = 1, nrow = 3)
+    plowhigh <- rmomu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.0995,rymu=0.5, nobs=nobs, labelest = labelest, conflevel=conflevel)
+    phighlow <- rmomu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.3713,rymu=0.1, nobs=nobs, labelest = labelest, conflevel=conflevel)
+    figure <- ggpubr::ggarrange(plow, pmedium, phigh, plowhigh, phighlow,
+                                labels = c("Low", "Medium", "High", "Low rxmu & High rymu", "High rxmu & Low rymu"),
+                                ncol = 1, nrow = 5)
   }
   if (specifyunob == 1) {
     figure <- rmomu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=rxmu,rymu=rymu, nobs=nobs, labelest = labelest, conflevel=conflevel)
@@ -218,6 +242,16 @@ rymu_plot_auxi <- function(rxmo=-2, rxy=-2, rymo=-2, rxmu=-2, rmomu=-2, nobs=0, 
       ggplot2::geom_hline(yintercept=result_c$est.omit,linetype="dashed") +
       ggplot2::labs(y="direct effect c")
   }
+  if (labelest == "a1b1indirect1") {
+    result_a1b1ind <- result[result$label!="c",]
+    figure <- ggplot2::ggplot(result_a1b1ind[c(T,rep(F,40)),],
+                              ggplot2::aes_string(x='rymu', y='est', lty='label', shape='label', color='label')) +
+      ggplot2::geom_point(size=1.7)+
+      ggplot2::geom_line(size=0.6)+
+      ggplot2::geom_ribbon(data=result[result$label=="indirect1",],ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
+      ggplot2::geom_hline(yintercept=result[result$label=="indirect1",]$est.omit,linetype="dashed") +
+      ggplot2::labs(y="indirect effect")
+  }
   return(figure)
 }
 
@@ -241,13 +275,14 @@ rymu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", c
     plow <- rymu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.0995,rmomu=0.1, nobs=nobs, labelest = labelest, conflevel=conflevel)
     pmedium <- rymu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.2425,rmomu=0.3, nobs=nobs, labelest = labelest, conflevel=conflevel)
     phigh <- rymu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.3713,rmomu=0.5, nobs=nobs, labelest = labelest, conflevel=conflevel)
-    figure <- ggpubr::ggarrange(plow, pmedium, phigh,
-                                labels = c("Low", "Medium", "High"),
-                                ncol = 1, nrow = 3)
+    plowhigh <- rymu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.0995,rmomu=0.5, nobs=nobs, labelest = labelest, conflevel=conflevel)
+    phighlow <- rymu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.3713,rmomu=0.1, nobs=nobs, labelest = labelest, conflevel=conflevel)
+    figure <- ggpubr::ggarrange(plow, pmedium, phigh, plowhigh, phighlow,
+                                labels = c("Low", "Medium", "High", "Low rxmu & High rmomu", "High rxmu & Low rmomu"),
+                                ncol = 1, nrow = 5)
   }
   if (specifyunob == 1) {
     figure <- rymu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=rxmu,rmomu=rmomu, nobs=nobs, labelest = labelest, conflevel=conflevel)
   }
   return(figure)
 }
-

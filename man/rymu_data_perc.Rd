@@ -4,8 +4,7 @@
 \alias{rymu_data_perc}
 \title{how the percentage of bias with regards to correlation between Y and Mu}
 \usage{
-rymu_data_perc(rxmo = -2, rxy = -2, rymo = -2, rxmu = -2,
-  rmomu = -2)
+rymu_data_perc(rxmo = -2, rxy = -2, rymo = -2, rxmu = -2, rmomu = -2)
 }
 \arguments{
 \item{rxmo}{correlation between X and Mo}

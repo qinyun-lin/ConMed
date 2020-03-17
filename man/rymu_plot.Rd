@@ -4,9 +4,17 @@
 \alias{rymu_plot}
 \title{sensitivity plot for estimates with regards to correlation between Y and Mu}
 \usage{
-rymu_plot(rxmo = -2, rxy = -2, rymo = -2, nobs = nobs,
-  labelest = "indirect1", conflevel = 0.95, specifyunob = 0,
-  rxmu = -2, rmomu = -2)
+rymu_plot(
+  rxmo = -2,
+  rxy = -2,
+  rymo = -2,
+  nobs = nobs,
+  labelest = "indirect1",
+  conflevel = 0.95,
+  specifyunob = 0,
+  rxmu = -2,
+  rmomu = -2
+)
 }
 \arguments{
 \item{rxmo}{correlation between X and Mo}

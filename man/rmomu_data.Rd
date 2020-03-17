@@ -4,8 +4,15 @@
 \alias{rmomu_data}
 \title{how the estimate and confidence interval change with regards to correlation between Mo and Mu}
 \usage{
-rmomu_data(rxmo = -2, rxy = -2, rymo = -2, rxmu = -2, rymu = -2,
-  nobs = 0, conflevel = 0.95)
+rmomu_data(
+  rxmo = -2,
+  rxy = -2,
+  rymo = -2,
+  rxmu = -2,
+  rymu = -2,
+  nobs = 0,
+  conflevel = 0.95
+)
 }
 \arguments{
 \item{rxmo}{correlation between X and Mo}

@@ -4,8 +4,7 @@
 \alias{rmomu_plot_perc}
 \title{sensitivity plot for percentage of bias with regards to correlation between Mo and Mu}
 \usage{
-rmomu_plot_perc(rxmo = -2, rxy = -2, rymo = -2, rxmu = -2,
-  rymu = -2)
+rmomu_plot_perc(rxmo = -2, rxy = -2, rymo = -2, rxmu = -2, rymu = -2)
 }
 \arguments{
 \item{rxmo}{correlation between X and Mo}

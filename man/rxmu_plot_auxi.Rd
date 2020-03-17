@@ -4,8 +4,16 @@
 \alias{rxmu_plot_auxi}
 \title{auxillary function for sensitivity plot for estimates with regards to correlation between X and Mu}
 \usage{
-rxmu_plot_auxi(rxmo = -2, rxy = -2, rymo = -2, rmomu = -2,
-  rymu = -2, nobs = 0, labelest = "indirect1", conflevel = 0.95)
+rxmu_plot_auxi(
+  rxmo = -2,
+  rxy = -2,
+  rymo = -2,
+  rmomu = -2,
+  rymu = -2,
+  nobs = 0,
+  labelest = "indirect1",
+  conflevel = 0.95
+)
 }
 \arguments{
 \item{rxmo}{correlation between X and Mo}

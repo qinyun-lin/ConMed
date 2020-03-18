@@ -20,7 +20,7 @@ rxmu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, labe
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_ind1,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_ind1$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(a[1]*b[1]))
+      ggplot2::labs(y=expression(a[1]*b[1]))+
       ggplot2::labs(x=expression(rho[X*M[U]]))
                       }
   if (labelest == "a1") {
@@ -30,7 +30,7 @@ rxmu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, labe
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_a1,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_a1$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(a[1]))
+      ggplot2::labs(y=expression(a[1]))+
       ggplot2::labs(x=expression(rho[X*M[U]]))
   }
   if (labelest == "b1") {
@@ -40,7 +40,7 @@ rxmu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, labe
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_b1,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_b1$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(b[1]))
+      ggplot2::labs(y=expression(b[1]))+
       ggplot2::labs(x=expression(rho[X*M[U]]))
   }
   if (labelest == "c") {
@@ -50,7 +50,7 @@ rxmu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, labe
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_c,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_c$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(c))
+      ggplot2::labs(y=expression(c))+
       ggplot2::labs(x=expression(rho[X*M[U]]))
   }
   if (labelest == "a1b1indirect1") {
@@ -103,7 +103,7 @@ rmomu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, labe
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_ind1,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_ind1$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(a[1]*b[1]))
+      ggplot2::labs(y=expression(a[1]*b[1]))+
       ggplot2::labs(x=expression(rho[M[O]*M[U]]))
   }
   if (labelest == "a1") {
@@ -113,7 +113,7 @@ rmomu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, labe
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_a1,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_a1$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(a[1]))
+      ggplot2::labs(y=expression(a[1]))+
       ggplot2::labs(x=expression(rho[M[O]*M[U]]))
   }
   if (labelest == "b1") {
@@ -123,7 +123,7 @@ rmomu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, labe
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_b1,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_b1$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(b[1]))
+      ggplot2::labs(y=expression(b[1]))+
       ggplot2::labs(x=expression(rho[M[O]*M[U]]))
   }
   if (labelest == "c") {
@@ -133,7 +133,7 @@ rmomu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, labe
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_c,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_c$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(c))
+      ggplot2::labs(y=expression(c))+
       ggplot2::labs(x=expression(rho[M[O]*M[U]]))
       }
   if (labelest == "a1b1indirect1") {
@@ -185,7 +185,7 @@ rymu_plot_auxi <- function(rxmo=-2, rxy=-2, rymo=-2, rxmu=-2, rmomu=-2, nobs=0, 
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_ind1,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_ind1$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(a[1]*b[1]))
+      ggplot2::labs(y=expression(a[1]*b[1]))+
       ggplot2::labs(x=expression(rho[Y*M[U]]))
   }
   if (labelest == "a1") {
@@ -195,7 +195,7 @@ rymu_plot_auxi <- function(rxmo=-2, rxy=-2, rymo=-2, rxmu=-2, rmomu=-2, nobs=0, 
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_a1,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_a1$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(a[1]))
+      ggplot2::labs(y=expression(a[1]))+
       ggplot2::labs(x=expression(rho[Y*M[U]]))
   }
   if (labelest == "b1") {
@@ -205,7 +205,7 @@ rymu_plot_auxi <- function(rxmo=-2, rxy=-2, rymo=-2, rxmu=-2, rmomu=-2, nobs=0, 
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_b1,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_b1$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(b[1]))
+      ggplot2::labs(y=expression(b[1]))+
       ggplot2::labs(x=expression(rho[Y*M[U]]))
   }
   if (labelest == "c") {
@@ -215,7 +215,7 @@ rymu_plot_auxi <- function(rxmo=-2, rxy=-2, rymo=-2, rxmu=-2, rmomu=-2, nobs=0, 
       ggplot2::geom_line()+
       ggplot2::geom_ribbon(data=result_c,ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_hline(yintercept=result_c$est.omit,linetype="dashed") +
-      ggplot2::labs(y=expression(c))
+      ggplot2::labs(y=expression(c))+
       ggplot2::labs(x=expression(rho[Y*M[U]]))
   }
   if (labelest == "a1b1indirect1") {

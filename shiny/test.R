@@ -20,13 +20,13 @@ ui <- fluidPage(
       radioButtons(inputId ="labelest",
                    label = "Parameter of interest",
                    choices = c("a1","b1", "c","a1b1indirect1"))),
-  mainPanel(plotOutput("plot"))
+  mainPanel(plotOutput("plot", width = "100%"))
   )
   )
 server <- function(input, output){
   output$plot <- renderPlot({
     rxmu_plot(input$rxmo, input$rxy, input$rymo, input$nobs,
               input$labelest, input$conflevel, specifyunob = 0)
-    })
+    }, width = 600, height = 800)
 }
 shinyApp(ui = ui, server = server)

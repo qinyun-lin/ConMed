@@ -6,14 +6,14 @@
 #' @param rxy correlation between X and Y
 #' @param rymo correlation between Y and Mo
 #' @param nobs number of observations in the sample or sample size
-#' @param labelest label for which estimate the figure is for: indirect1, a1, b1 or c, default is indirect1
+#' @param labelest label for which estimate the figure is for: a1b1, a1, b1 or c, default is a1b1
 #' @param conflevel confidence interval level, default is 0.95
 #' @param specifyunob whether the user wants to specify two unobserved correlations default is 0, meaning no
 #' @param rmomu correlation between Mo and Mu
 #' @param rymu correlation between Y and Mu
 #' @return plot for how rxmu affects the estimates and confidence interval
 #' @export
-rxmu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", conflevel=0.95, specifyunob = 0, rmomu=-2,rymu=-2){
+rxmu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", conflevel=0.95, specifyunob = 0, rmomu=-2,rymu=-2){
   if (specifyunob == 0) {
     S1 <- rxmu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rmomu=0.1,rymu=0.1, nobs=nobs, conflevel=conflevel)
     S2 <- rxmu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rmomu=0.3,rymu=0.3, nobs=nobs, conflevel=conflevel)
@@ -36,7 +36,7 @@ rxmu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", c
     if (labelest == "a1") {ytitle <- expression(a[1])}
     if (labelest == "b1") {ytitle <- expression(b[1])}
     if (labelest == "c") {ytitle <- expression(c)}
-    if (labelest == "indirect1") {ytitle <- expression(a[1]*b[1])}
+    if (labelest == "a1b1") {ytitle <- expression(a[1]*b[1])}
     figure <- ggplot2::ggplot(result, ggplot2::aes(x=rxmu, y=est)) +
       ggplot2::geom_ribbon(data=result, ggplot2::aes_string(ymin='ci.lower',ymax='ci.upper'),alpha=0.3) +
       ggplot2::geom_line() +
@@ -68,14 +68,14 @@ rxmu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", c
 #' @param rxy correlation between X and Y
 #' @param rymo correlation between Y and Mo
 #' @param nobs number of observations in the sample or sample size
-#' @param labelest label for which estimate the figure is for: indirect1, a1, b1 or c, default is indirect1
+#' @param labelest label for which estimate the figure is for: a1b1, a1, b1 or c, default is a1b1
 #' @param conflevel confidence interval level, default is 0.95
 #' @param specifyunob whether the user wants to specify two unobserved correlations default is 0, meaning no
 #' @param rxmu correlation between X and Mu
 #' @param rymu correlation between Y and Mu
 #' @return plot for how rmomu affects the estimates and confidence interval
 #' @export
-rmomu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", conflevel=0.95,specifyunob = 0, rxmu=-2,rymu=-2){
+rmomu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", conflevel=0.95,specifyunob = 0, rxmu=-2,rymu=-2){
   if (specifyunob == 0) {
     S1 <- rmomu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.1,rymu=0.1, nobs=nobs, conflevel=conflevel)
     S2 <- rmomu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.3,rymu=0.3, nobs=nobs, conflevel=conflevel)
@@ -91,7 +91,7 @@ rmomu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", 
     if (labelest == "a1") {ytitle <- expression(a[1])}
     if (labelest == "b1") {ytitle <- expression(b[1])}
     if (labelest == "c") {ytitle <- expression(c)}
-    if (labelest == "indirect1") {ytitle <- expression(a[1]*b[1])}
+    if (labelest == "a1b1") {ytitle <- expression(a[1]*b[1])}
     newlabel <- c("S1" = expression("Low"~ rho[X*M[U]] ~ "Low" ~ rho[Y*M[U]]),
                   "S2" = expression("Medium"~ rho[X*M[U]] ~ "Medium" ~ rho[Y*M[U]]),
                   "S3" = expression("High"~ rho[X*M[U]] ~ "High" ~ rho[Y*M[U]]),
@@ -130,14 +130,14 @@ rmomu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", 
 #' @param rxy correlation between X and Y
 #' @param rymo correlation between Y and Mo
 #' @param nobs number of observations in the sample or sample size
-#' @param labelest label for which estimate the figure is for: indirect1, a1, b1 or c, default is indirect1
+#' @param labelest label for which estimate the figure is for: a1b1, a1, b1 or c, default is a1b1
 #' @param conflevel confidence interval level, default is 0.95
 #' @param specifyunob whether the user wants to specify two unobserved correlations default is 0, meaning no
 #' @param rxmu correlation between X and Mu
 #' @param rmomu correlation between Mo and Mu
 #' @return plot for how rmomu affects the estimates and confidence interval
 #' @export
-rymu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", conflevel=0.95,specifyunob = 0, rxmu=-2,rmomu=-2){
+rymu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", conflevel=0.95,specifyunob = 0, rxmu=-2,rmomu=-2){
   if (specifyunob == 0) {
     S1 <- rymu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.1,rmomu=0.1, nobs=nobs, conflevel=conflevel)
     S2 <- rymu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.3,rmomu=0.3, nobs=nobs, conflevel=conflevel)
@@ -153,7 +153,7 @@ rymu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", c
     if (labelest == "a1") {ytitle <- expression(a[1])}
     if (labelest == "b1") {ytitle <- expression(b[1])}
     if (labelest == "c") {ytitle <- expression(c)}
-    if (labelest == "indirect1") {ytitle <- expression(a[1]*b[1])}
+    if (labelest == "a1b1") {ytitle <- expression(a[1]*b[1])}
     newlabel <- c("S1" = expression("Low"~ rho[X*M[U]] ~ "Low" ~ rho[M[O]*M[U]]),
                   "S2" = expression("Medium"~ rho[X*M[U]] ~ "Medium" ~ rho[M[O]*M[U]]),
                   "S3" = expression("High"~ rho[X*M[U]] ~ "High" ~ rho[M[O]*M[U]]),

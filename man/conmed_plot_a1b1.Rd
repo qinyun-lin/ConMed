@@ -16,8 +16,6 @@ conmed_plot_a1b1(rxmo = -2, rxy = -2, rymo = -2, nobs = nobs, conflevel = 0.95)
 \item{nobs}{number of observations in the sample or sample size}
 
 \item{conflevel}{confidence interval level, default is 0.95}
-
-\item{labelest}{label for which estimate the figure is for: a1b1, a1, b1 or c, default is a1b1}
 }
 \value{
 plot for how rxmu rymu rmomu affects the estimates and confidence interval

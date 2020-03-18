@@ -85,7 +85,7 @@ rmomu_plot_a1b1 <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs, conflevel=0.95,spe
 #' @param rmomu correlation between Mo and Mu
 #' @return plot for how rmomu affects the estimates and confidence interval
 #' @export
-rymu_plot_a1b1 <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "indirect1", conflevel=0.95,specifyunob = 0, rxmu=-2,rmomu=-2){
+rymu_plot_a1b1 <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs, conflevel=0.95,specifyunob = 0, rxmu=-2,rmomu=-2){
   if (specifyunob == 0) {
     plow <- rymu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.0995,rmomu=0.1, nobs=nobs, labelest = "a1b1indirect1", conflevel=conflevel)
     pmedium <- rymu_plot_auxi(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.2425,rmomu=0.3, nobs=nobs, labelest = "a1b1indirect1", conflevel=conflevel)

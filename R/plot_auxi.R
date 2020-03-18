@@ -8,13 +8,13 @@
 #' @param rmomu correlation between Mo and Mu
 #' @param rymu correlation between Y and Mu
 #' @param nobs number of observations in the sample or sample size
-#' @param labelest label for which estimate the figure is for: indirect1, a1, b1 or c, default is indirect1
+#' @param labelest label for which estimate the figure is for: a1b1, a1, b1 or c, default is a1b1
 #' @param conflevel confidence interval level, default is 0.95
 #' @return plot for how rxmu affects the estimates and confidence interval
-rxmu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, labelest = "indirect1", conflevel=0.95){
+rxmu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, labelest = "a1b1", conflevel=0.95){
   result <- rxmu_data(rxmo, rxy, rymo, rmomu, rymu, nobs, conflevel)
-  if (labelest == "indirect1") {
-    result_ind1 <- result[result$label=="indirect1",]
+  if (labelest == "a1b1") {
+    result_ind1 <- result[result$label=="a1b1",]
     figure <- ggplot2::ggplot(result_ind1, ggplot2::aes_string(x='rxmu', y='est'))+
       ggplot2::geom_point()+
       ggplot2::geom_line()+
@@ -90,14 +90,14 @@ rxmu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, labe
 #' @param rxmu correlation between X and Mu
 #' @param rymu correlation between Y and Mu
 #' @param nobs number of observations in the sample or sample size
-#' @param labelest label for which estimate the figure is for: indirect1, a1, b1 or c, default is indirect1
+#' @param labelest label for which estimate the figure is for: a1b1, a1, b1 or c, default is a1b1
 #' @param conflevel confidence interval level, default is 0.95
 #'
 #' @return plot for how rmomu affects the estimates and confidence interval
-rmomu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, labelest = "indirect1", conflevel=0.95){
+rmomu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, labelest = "a1b1", conflevel=0.95){
   result <- rmomu_data(rxmo, rxy, rymo, rxmu, rymu, nobs, conflevel)
-  if (labelest == "indirect1") {
-    result_ind1 <- result[result$label=="indirect1",]
+  if (labelest == "a1b1") {
+    result_ind1 <- result[result$label=="a1b1",]
     figure <- ggplot2::ggplot(result_ind1, ggplot2::aes_string(x='rmomu', y='est'))+
       ggplot2::geom_point()+
       ggplot2::geom_line()+
@@ -173,13 +173,13 @@ rmomu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, labe
 #' @param rxmu correlation between X and Mu
 #' @param rmomu correlation between Mo and Mu
 #' @param nobs number of observations in the sample or sample size
-#' @param labelest label for which estimate the figure is for: indirect1, a1, b1 or c, default is indirect1
+#' @param labelest label for which estimate the figure is for: a1b1, a1, b1 or c, default is a1b1
 #' @param conflevel confidence interval level, default is 0.95
 #' @return plot for how rymu affects the percentage of bias
-rymu_plot_auxi <- function(rxmo=-2, rxy=-2, rymo=-2, rxmu=-2, rmomu=-2, nobs=0, labelest = "indirect1", conflevel=0.95){
+rymu_plot_auxi <- function(rxmo=-2, rxy=-2, rymo=-2, rxmu=-2, rmomu=-2, nobs=0, labelest = "a1b1", conflevel=0.95){
   result <- rymu_data(rxmo, rxy, rymo, rxmu, rmomu, nobs, conflevel)
-  if (labelest == "indirect1") {
-    result_ind1 <- result[result$label=="indirect1",]
+  if (labelest == "a1b1") {
+    result_ind1 <- result[result$label=="a1b1",]
     figure <- ggplot2::ggplot(result_ind1, ggplot2::aes_string(x='rymu', y='est'))+
       ggplot2::geom_point()+
       ggplot2::geom_line()+

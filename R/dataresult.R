@@ -52,7 +52,7 @@ rxmu_data <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, conflevel
       result_a1 <- rbind(result_a1,c(rxmu,"a1", a1, se_a1, a1+z*se_a1, a1-z*se_a1, a1_omit))
       result_b1 <- rbind(result_b1,c(rxmu,"b1", b1, se_b1, b1+z*se_b1, b1-z*se_b1, b1_omit))
       result_c <- rbind(result_c,c(rxmu,"c", c, se_c, c+z*se_c, c-z*se_c, c_omit))
-      result_ind1 <- rbind(result_ind1, c(rxmu,"indirect1", ind1, se_ind1, ind1+z*se_ind1, ind1-z*se_ind1, ind1_omit))
+      result_ind1 <- rbind(result_ind1, c(rxmu,"a1b1", ind1, se_ind1, ind1+z*se_ind1, ind1-z*se_ind1, ind1_omit))
     }
   }
   result_a1 <- as.data.frame(result_a1[2:nrow(result_a1),])
@@ -125,7 +125,7 @@ rmomu_data <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, conflevel
       result_a1 <- rbind(result_a1,c(rmomu,"a1", a1, se_a1, a1+z*se_a1, a1-z*se_a1, a1_omit))
       result_b1 <- rbind(result_b1,c(rmomu,"b1", b1, se_b1, b1+z*se_b1, b1-z*se_b1, b1_omit))
       result_c <- rbind(result_c,c(rmomu,"c", c, se_c, c+z*se_c, c-z*se_c, c_omit))
-      result_ind1 <- rbind(result_ind1, c(rmomu,"indirect1", ind1, se_ind1, ind1+z*se_ind1, ind1-z*se_ind1, ind1_omit))
+      result_ind1 <- rbind(result_ind1, c(rmomu,"a1b1", ind1, se_ind1, ind1+z*se_ind1, ind1-z*se_ind1, ind1_omit))
     }
   }
   result_a1 <- as.data.frame(result_a1[2:nrow(result_a1),])
@@ -197,7 +197,7 @@ rymu_data <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rmomu=-2, nobs=0, conflevel
       result_a1 <- rbind(result_a1,c(rymu,"a1", a1, se_a1, a1+z*se_a1, a1-z*se_a1, a1_omit))
       result_b1 <- rbind(result_b1,c(rymu,"b1", b1, se_b1, b1+z*se_b1, b1-z*se_b1, b1_omit))
       result_c <- rbind(result_c,c(rymu,"c", c, se_c, c+z*se_c, c-z*se_c, c_omit))
-      result_ind1 <- rbind(result_ind1, c(rymu,"indirect1", ind1, se_ind1, ind1+z*se_ind1, ind1-z*se_ind1, ind1_omit))
+      result_ind1 <- rbind(result_ind1, c(rymu,"a1b1", ind1, se_ind1, ind1+z*se_ind1, ind1-z*se_ind1, ind1_omit))
     }
   }
   result_a1 <- as.data.frame(result_a1[2:nrow(result_a1),])

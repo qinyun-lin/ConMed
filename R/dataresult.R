@@ -23,8 +23,8 @@ rxmu_data <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, conflevel
   }
   result_a1 <- result_b1 <- result_c <- result_ind1 <- matrix(ncol = 7)
   colnames(result_a1) <- colnames(result_b1) <- colnames(result_c) <- colnames(result_ind1) <- c("rxmu","label", "est","se","ci.lower","ci.upper","est.omit")
-  for (i in -900 : 900) {
-    rxmu <- i/1000
+  for (i in -90 : 90) {
+    rxmu <- i/100
     #calculate parameters from correlations
     a1 <- cal_a1(rxmo,rmomu,rxmu)
     b1 <- cal_b1(rxmo,rxmu,rmomu,rxy,rymo,rymu)
@@ -96,8 +96,8 @@ rmomu_data <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, conflevel
   }
   result_a1 <- result_b1 <- result_c <- result_ind1 <- matrix(ncol = 7)
   colnames(result_a1) <- colnames(result_b1) <- colnames(result_c) <- colnames(result_ind1) <- c("rmomu","label", "est","se","ci.lower","ci.upper", "est.omit")
-  for (i in -900 : 900) {
-    rmomu <- i/1000
+  for (i in -90 : 90) {
+    rmomu <- i/100
     #calculate parameters from correlations
     a1 <- cal_a1(rxmo,rmomu,rxmu)
     b1 <- cal_b1(rxmo,rxmu,rmomu,rxy,rymo,rymu)
@@ -168,8 +168,8 @@ rymu_data <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rmomu=-2, nobs=0, conflevel
     {stop("Error: input is problematic! Please give positive numbers for sample size!")}
   result_a1 <- result_b1 <- result_c <- result_ind1 <- matrix(ncol = 7)
   colnames(result_a1) <- colnames(result_b1) <- colnames(result_c) <- colnames(result_ind1) <- c("rymu","label", "est","se","ci.lower","ci.upper", "est.omit")
-  for (i in -900 : 900) {
-    rymu <- i/1000
+  for (i in -90 : 90) {
+    rymu <- i/100
     #calculate parameters from correlations
     a1 <- cal_a1(rxmo,rmomu,rxmu)
     b1 <- cal_b1(rxmo,rxmu,rmomu,rxy,rymo,rymu)

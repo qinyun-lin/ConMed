@@ -56,7 +56,7 @@ rxmu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rmomu=-2,rymu=-2, nobs=0, labe
   if (labelest == "a1b1indirect1") {
     result_a1b1ind <- result[result$label!="c",]
     levels(result_a1b1ind$label) <- c("a1", "b1", "c", "a1b1")
-    figure <- ggplot2::ggplot(result_a1b1ind[c(T,rep(F,40)),],
+    figure <- ggplot2::ggplot(result_a1b1ind[c(T,rep(F,4)),],
                               ggplot2::aes_string(x='rxmu', y='est', lty='label', shape='label', color='label')) +
       ggplot2::geom_point(size=1.7)+
       ggplot2::geom_line(size=0.6)+
@@ -139,7 +139,7 @@ rmomu_plot_auxi <- function(rxmo=-2,rxy=-2,rymo=-2,rxmu=-2,rymu=-2, nobs=0, labe
   if (labelest == "a1b1indirect1") {
     result_a1b1ind <- result[result$label!="c",]
     levels(result_a1b1ind$label) <- c("a1", "b1", "c", "a1b1")
-    figure <- ggplot2::ggplot(result_a1b1ind[c(T,rep(F,40)),],
+    figure <- ggplot2::ggplot(result_a1b1ind[c(T,rep(F,4)),],
                               ggplot2::aes_string(x='rmomu', y='est', lty='label', shape='label', color='label')) +
       ggplot2::geom_point(size=1.7)+
       ggplot2::geom_line(size=0.6)+
@@ -221,7 +221,7 @@ rymu_plot_auxi <- function(rxmo=-2, rxy=-2, rymo=-2, rxmu=-2, rmomu=-2, nobs=0, 
   if (labelest == "a1b1indirect1") {
     result_a1b1ind <- result[result$label!="c",]
     levels(result_a1b1ind$label) <- c("a1", "b1", "c", "a1b1")
-    figure <- ggplot2::ggplot(result_a1b1ind[c(T,rep(F,40)),],
+    figure <- ggplot2::ggplot(result_a1b1ind[c(T,rep(F,4)),],
                               ggplot2::aes_string(x='rymu', y='est', lty='label', shape='label', color='label')) +
       ggplot2::geom_point(size=1.7)+
       ggplot2::geom_line(size=0.6)+

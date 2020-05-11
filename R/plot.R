@@ -44,7 +44,7 @@ rxmu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", confle
       ggplot2::labs(x = expression(rho[X*M[U]])) +
       ggplot2::labs(y = ytitle)+
       ggplot2::geom_hline(yintercept=result$est.omit,linetype="dashed") +
-      ggplot2::facet_wrap(.~ cat, labeller = label_parsed, nrow = 5, scale = "free") +
+      ggplot2::facet_wrap(.~ cat, labeller = label_parsed, nrow = 5, scale = "free_y") +
       ggplot2::theme(plot.title = element_text(hjust = 0.5)) +
       ggplot2::theme_bw() +
       ggplot2::theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
@@ -106,7 +106,7 @@ rmomu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", confl
       ggplot2::labs(x = expression(rho[M[O]*M[U]])) +
       ggplot2::labs(y = ytitle)+
       ggplot2::geom_hline(yintercept=result$est.omit,linetype="dashed") +
-      ggplot2::facet_wrap(.~ cat, labeller = label_parsed, nrow = 5, scale = "free") +
+      ggplot2::facet_wrap(.~ cat, labeller = label_parsed, nrow = 5, scale = "free_y") +
       ggplot2::theme(plot.title = element_text(hjust = 0.5)) +
       ggplot2::theme_bw() +
       ggplot2::theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
@@ -168,7 +168,7 @@ rymu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", confle
       ggplot2::labs(x = expression(rho[Y*M[U]])) +
       ggplot2::labs(y = ytitle)+
       ggplot2::geom_hline(yintercept=result$est.omit,linetype="dashed") +
-      ggplot2::facet_wrap(.~ cat, labeller = label_parsed, nrow = 5, scale = "free") +
+      ggplot2::facet_wrap(.~ cat, labeller = label_parsed, nrow = 5, scale = "free_y") +
       ggplot2::theme(plot.title = element_text(hjust = 0.5)) +
       ggplot2::theme_bw() +
       ggplot2::theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),

@@ -33,16 +33,16 @@ plot_curve <- function(focus, obs_r, critical_r, r_con) {
     ggplot2::xlim(0, 1) +
     ggplot2::ylim(0, 1) +
     ggplot2:: geom_abline(slope = 1, intercept = 0, alpha = 0.7, linetype = "dotdash") +
-    ggplot2::theme(plot.title = element_text(hjust = 0.5)) +
+    ggplot2::theme(plot.title = ggplot2::element_text(hjust = 0.5)) +
     ggplot2::xlab(xlabel)+
     ggplot2::ylab(ylabel)+
     ggplot2::theme_bw() +
-    ggplot2::theme(plot.title = element_text(size = 14, hjust = 0.5, face = "bold"),
-                   axis.line = element_line(colour = "black"),
-                   axis.ticks.x=element_blank(),
-                   legend.text = element_text(colour="black", size = 12),
-                   legend.title = element_text(colour="black", size = 12),
-                   panel.border = element_blank())
+    ggplot2::theme(plot.title = ggplot2::element_text(size = 14, hjust = 0.5, face = "bold"),
+                   axis.line = ggplot2::element_line(colour = "black"),
+                   axis.ticks.x = ggplot2::element_blank(),
+                   legend.text = ggplot2::element_text(colour="black", size = 12),
+                   legend.title = ggplot2::element_text(colour="black", size = 12),
+                   panel.border = ggplot2::element_blank())
  plot
 }
 

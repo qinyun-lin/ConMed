@@ -1,6 +1,17 @@
-# Function to output printed text
+#' Function to output printed text
+#' @param focus what is the scenario
+#' @param ind estimated indirect effect
+#' @param est_eff estimated effect
+#' @param beta_threshold threshold for coefficient
+#' @param nu null hypothesis
+#' @param obs_r observed r value
+#' @param critical_r critical r value
+#' @param r_con correlaton for achieving ITCV
+#' @param itcv  ITCV
+#' @param alpha alpha value
+#' @return print output
 
-output_print <- function(focus, ind, est_eff, beta_threshhold, nu, obs_r, critical_r, r_con, itcv, alpha, index) {
+output_print <- function(focus, ind, est_eff, beta_threshhold, nu, obs_r, critical_r, r_con, itcv, alpha) {
   if (focus == "inval_a") {
       cat("The original estimated mediation effect is", round(ind, 3), "and it is statistically significant.")
       cat("To invalidate an inference of a significant mediation effect, we consider an omitted confounder CV to change the inference regarding the a pathway (from the treatment to the mediator).")
@@ -57,6 +68,22 @@ output_print <- function(focus, ind, est_eff, beta_threshhold, nu, obs_r, critic
   }
 }
 
+#' Function to output printed text for sustaining both a and b 
+#' @param ind estimated indirect effect
+#' @param est_eff_a estimated effect for a
+#' @param est_eff_b estimated effect for b
+#' @param beta_threshold_a threshold for coefficient (a)
+#' @param beta_threshold_b threshold for coefficient (b)
+#' @param obs_r_a observed r value for a pathway
+#' @param obs_r_b observed r value for b pathway
+#' @param critical_r_a critical r value for a pathway
+#' @param critical_r_b critical r value for b pathway
+#' @param r_con_a correlaton for achieving ITCV for a pathway
+#' @param r_con_b correlaton for achieving ITCV for b pathway
+#' @param itcv_a  ITCV for a pathway
+#' @param itcv_b  ITCV for b pathway
+#' @param alpha alpha value
+#' @return print output
 output_print_both <- function(ind, est_eff_a, est_eff_b, beta_threshold_a, beta_threshold_b, nu,
                   obs_r_a, obs_r_b, critical_r_a, critical_r_b,
                   r_con_a, r_con_b, itcv_a, itcv_b, alpha){

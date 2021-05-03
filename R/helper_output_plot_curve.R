@@ -1,6 +1,12 @@
-# plot impact curve
+#' plot impact curve
+#' @param focus what is the scenario
+#' @param obs_r observed r value
+#' @param critical_r critical r value
+#' @param r_con correlaton for achieving ITCV
+#' @return plot for impact curve
 
 plot_curve <- function(focus, obs_r, critical_r, r_con) {
+  rxcv <- rycv <- NULL 
   #obs_r = 0.201
   #critical_r = 0.15
   data <- data.frame(matrix(0, nrow = 1000, ncol = 2))

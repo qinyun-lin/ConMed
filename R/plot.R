@@ -14,6 +14,7 @@
 #' @return plot for how rxmu affects the estimates and confidence interval
 #' @export
 rxmu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", conflevel=0.95, specifyunob = 0, rmomu=-2,rymu=-2){
+  rxmu <- est <- NULL
   if (specifyunob == 0) {
     S1 <- rxmu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rmomu=0.1,rymu=0.1, nobs=nobs, conflevel=conflevel)
     S2 <- rxmu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rmomu=0.3,rymu=0.3, nobs=nobs, conflevel=conflevel)
@@ -76,6 +77,7 @@ rxmu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", confle
 #' @return plot for how rmomu affects the estimates and confidence interval
 #' @export
 rmomu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", conflevel=0.95,specifyunob = 0, rxmu=-2,rymu=-2){
+  rmomu <- est <- NULL
   if (specifyunob == 0) {
     S1 <- rmomu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.1,rymu=0.1, nobs=nobs, conflevel=conflevel)
     S2 <- rmomu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.3,rymu=0.3, nobs=nobs, conflevel=conflevel)
@@ -138,6 +140,7 @@ rmomu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", confl
 #' @return plot for how rmomu affects the estimates and confidence interval
 #' @export
 rymu_plot <- function(rxmo=-2,rxy=-2,rymo=-2,nobs=nobs,labelest = "a1b1", conflevel=0.95,specifyunob = 0, rxmu=-2,rmomu=-2){
+  rymu <- est <- NULL
   if (specifyunob == 0) {
     S1 <- rymu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.1,rmomu=0.1, nobs=nobs, conflevel=conflevel)
     S2 <- rymu_data(rxmo=rxmo,rxy=rxy,rymo=rymo,rxmu=0.3,rmomu=0.3, nobs=nobs, conflevel=conflevel)

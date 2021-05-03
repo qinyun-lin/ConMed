@@ -13,7 +13,6 @@
 #' @examples
 #' conmed_ind(est_eff_a = 0.181, std_err_a = 0.087, est_eff_b = 0.432, std_err_b = 0.074, nobs = 123)
 #' @export
-
 conmed_ind <- function(est_eff_a,
                       std_err_a,
                       est_eff_b,

@@ -60,15 +60,15 @@ conmed_ind_ME <- function(est_eff_a,
   beta_threshold_b <- critical_t_b * std_err_b
 
   # transforming t into r (biased by measurement error)
-  obs_r_ME_a <- (est_eff_a / std_err_a) / sqrt(((n_obs - n_covariates_a - 1) + ((est_eff_a / std_err_a)^2)))
-  obs_r_ME_b <- (est_eff_b / std_err_b) / sqrt(((n_obs - n_covariates_b - 1) + ((est_eff_b / std_err_b)^2)))
+  obs_r_ME_a <- (est_eff_a / std_err_a) / sqrt(((n_obs - n_covariates_a - 3) + ((est_eff_a / std_err_a)^2)))
+  obs_r_ME_b <- (est_eff_b / std_err_b) / sqrt(((n_obs - n_covariates_b - 3) + ((est_eff_b / std_err_b)^2)))
 
   # calculate important intermediate products
   R2_yz_ME_a <- max(0, (obs_r_ME_a^2 - R2_a) / (obs_r_ME_a^2 - 1))
-  R2_xz_ME_a <- max(0, 1 - (sd_M^2 * (1 - R2_a)) / (sd_X^2 * (n_obs - n_covariates_a - 1) * std_err_a^2))
+  R2_xz_ME_a <- max(0, 1 - (sd_M^2 * (1 - R2_a)) / (sd_X^2 * (n_obs - n_covariates_a - 2) * std_err_a^2))
 
   R2_yz_ME_b <- max(0, (obs_r_ME_b^2 - R2_b) / (obs_r_ME_b^2 - 1))
-  R2_xz_ME_b <- max(0, 1 - (sd_Y^2 * (1 - R2_b)) / (sd_M^2 * (n_obs - n_covariates_b - 1) * std_err_b^2))
+  R2_xz_ME_b <- max(0, 1 - (sd_Y^2 * (1 - R2_b)) / (sd_M^2 * (n_obs - n_covariates_b - 2) * std_err_b^2))
 
   # correct for measurement error in obs_r_ME
   obs_r_a <- (obs_r_ME_a/sqrt(rel_M) - sqrt(R2_yz_ME_a) / sqrt(rel_M) * sqrt(R2_xz_ME_a) / sqrt(rel_X)) /
@@ -77,10 +77,10 @@ conmed_ind_ME <- function(est_eff_a,
     sqrt(1 - R2_yz_ME_b / rel_Y) * sqrt(1 - R2_xz_ME_b / rel_M)
 
   # finding critical r
-  critical_r_a <- critical_t_a / sqrt((critical_t_a^2) + (n_obs - n_covariates_a - 2))
-  critical_r_b <- critical_t_b / sqrt((critical_t_b^2) + (n_obs - n_covariates_b - 2))
+  critical_r_a <- critical_t_a / sqrt((critical_t_a^2) + (n_obs - n_covariates_a - 3))
+  critical_r_b <- critical_t_b / sqrt((critical_t_b^2) + (n_obs - n_covariates_b - 3))
 
-  # decide which estiamte to focus, either a or b
+  # decide which estimate to focus, either a or b
   if (abs(obs_r_a) > abs(critical_r_a) & abs(obs_r_b) > abs(critical_r_b)) {
     # both a and b are significant, then pick the one that is easier to invalidate
     if (abs(obs_r_a) > abs(obs_r_b)) {

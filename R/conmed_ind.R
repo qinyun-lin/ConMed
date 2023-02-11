@@ -42,14 +42,14 @@ conmed_ind <- function(est_eff_a,
   ind <- est_eff_a * est_eff_b
 
   # transforming t into r
-  obs_r_a <- (est_eff_a / std_err_a) / sqrt(((n_obs - n_covariates_a - 1) + ((est_eff_a / std_err_a)^2)))
-  obs_r_b <- (est_eff_b / std_err_b) / sqrt(((n_obs - n_covariates_b - 1) + ((est_eff_b / std_err_b)^2)))
+  obs_r_a <- (est_eff_a / std_err_a) / sqrt(((n_obs - n_covariates_a - 3) + ((est_eff_a / std_err_a)^2)))
+  obs_r_b <- (est_eff_b / std_err_b) / sqrt(((n_obs - n_covariates_b - 3) + ((est_eff_b / std_err_b)^2)))
 
   # finding critical r
-  critical_r_a <- critical_t_a / sqrt((critical_t_a^2) + (n_obs - n_covariates_a - 2))
-  critical_r_b <- critical_t_b / sqrt((critical_t_b^2) + (n_obs - n_covariates_b - 2))
+  critical_r_a <- critical_t_a / sqrt((critical_t_a^2) + (n_obs - n_covariates_a - 3))
+  critical_r_b <- critical_t_b / sqrt((critical_t_b^2) + (n_obs - n_covariates_b - 3))
 
-  # decide which estiamte to focus, either a or b
+  # decide which estimate to focus, either a or b
   if (abs(obs_r_a) > abs(critical_r_a) & abs(obs_r_b) > abs(critical_r_b)) {
     # both a and b are significant, then pick the one that is easier to invalidate
     if (abs(obs_r_a) > abs(obs_r_b)) {

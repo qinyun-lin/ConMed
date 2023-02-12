@@ -45,15 +45,15 @@ conmed_ind_ME <- function(est_eff_a,
   ind <- est_eff_a * est_eff_b
 
   if (est_eff_a < 0) {
-    critical_t_a <- stats::qt(1 - (alpha / tails), n_obs - n_covariates_a - 1) * -1
+    critical_t_a <- stats::qt(1 - (alpha / tails), n_obs - n_covariates_a - 2) * -1
   } else {
-    critical_t_a <- stats::qt(1 - (alpha / tails), n_obs - n_covariates_a - 1)
+    critical_t_a <- stats::qt(1 - (alpha / tails), n_obs - n_covariates_a - 2)
   }
 
   if (est_eff_b < 0) {
-    critical_t_b <- stats::qt(1 - (alpha / tails), n_obs - n_covariates_b - 1) * -1
+    critical_t_b <- stats::qt(1 - (alpha / tails), n_obs - n_covariates_b - 2) * -1
   } else {
-    critical_t_b <- stats::qt(1 - (alpha / tails), n_obs - n_covariates_b - 1)
+    critical_t_b <- stats::qt(1 - (alpha / tails), n_obs - n_covariates_b - 2)
   }
 
   beta_threshold_a <- critical_t_a * std_err_a

@@ -72,9 +72,9 @@ conmed_ind_ME <- function(est_eff_a,
 
   # correct for measurement error in obs_r_ME
   obs_r_a <- (obs_r_ME_a/sqrt(rel_M) - sqrt(R2_yz_ME_a) / sqrt(rel_M) * sqrt(R2_xz_ME_a) / sqrt(rel_X)) /
-    sqrt(1 - R2_yz_ME_a / rel_M) * sqrt(1 - R2_xz_ME_a / rel_X)
+    (sqrt(1 - R2_yz_ME_a / rel_M) * sqrt(1 - R2_xz_ME_a / rel_X))
   obs_r_b <- (obs_r_ME_b/sqrt(rel_Y) - sqrt(R2_yz_ME_b) / sqrt(rel_Y) * sqrt(R2_xz_ME_b) / sqrt(rel_M)) /
-    sqrt(1 - R2_yz_ME_b / rel_Y) * sqrt(1 - R2_xz_ME_b / rel_M)
+    (sqrt(1 - R2_yz_ME_b / rel_Y) * sqrt(1 - R2_xz_ME_b / rel_M))
 
   # finding critical r
   critical_r_a <- critical_t_a / sqrt((critical_t_a^2) + (n_obs - n_covariates_a - 3))

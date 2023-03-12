@@ -69,11 +69,14 @@ conmed_ind_ME <- function(est_eff_a,
 
   R2_yz_ME_b <- max(0, (obs_r_ME_b^2 - R2_b) / (obs_r_ME_b^2 - 1))
   R2_xz_ME_b <- max(0, 1 - (sd_Y^2 * (1 - R2_b)) / (sd_M^2 * (n_obs - n_covariates_b - 2) * std_err_b^2))
+  
+  R_yx_ME_a <- obs_r_ME_a * sqrt(1 - R2_yz_ME_a) * sqrt(1 - R2_xz_ME_a) + sqrt(R2_yz_ME_a) * sqrt(R2_xz_ME_a)
+  R_yx_ME_b <- obs_r_ME_b * sqrt(1 - R2_yz_ME_b) * sqrt(1 - R2_xz_ME_b) + sqrt(R2_yz_ME_b) * sqrt(R2_xz_ME_b)
 
   # correct for measurement error in obs_r_ME
-  obs_r_a <- (obs_r_ME_a/sqrt(rel_M) - sqrt(R2_yz_ME_a) / sqrt(rel_M) * sqrt(R2_xz_ME_a) / sqrt(rel_X)) /
+  obs_r_a <- (R_yx_ME_a/(sqrt(rel_M) * sqrt(rel_X)) - sqrt(R2_yz_ME_a) / sqrt(rel_M) * sqrt(R2_xz_ME_a) / sqrt(rel_X)) /
     (sqrt(1 - R2_yz_ME_a / rel_M) * sqrt(1 - R2_xz_ME_a / rel_X))
-  obs_r_b <- (obs_r_ME_b/sqrt(rel_Y) - sqrt(R2_yz_ME_b) / sqrt(rel_Y) * sqrt(R2_xz_ME_b) / sqrt(rel_M)) /
+  obs_r_b <- (R_yx_ME_b/(sqrt(rel_Y) * sqrt(rel_M)) - sqrt(R2_yz_ME_b) / sqrt(rel_Y) * sqrt(R2_xz_ME_b) / sqrt(rel_M)) /
     (sqrt(1 - R2_yz_ME_b / rel_Y) * sqrt(1 - R2_xz_ME_b / rel_M))
 
   # finding critical r

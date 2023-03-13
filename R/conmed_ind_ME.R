@@ -39,6 +39,8 @@ conmed_ind_ME <- function(est_eff_a,
                        R2_b,
                        alpha = .05,
                        tails = 2,
+                       rXM, # this should be the unconditional correlation
+                       rMY, # this should be the unconditional correlation
                        nu = 0) {
 
   # calculating statistics used in every case
@@ -65,13 +67,22 @@ conmed_ind_ME <- function(est_eff_a,
 
   # calculate important intermediate products
   R2_yz_ME_a <- max(0, (obs_r_ME_a^2 - R2_a) / (obs_r_ME_a^2 - 1))
-  R2_xz_ME_a <- max(0, 1 - (sd_M^2 * (1 - R2_a)) / (sd_X^2 * (n_obs - n_covariates_a - 2) * std_err_a^2))
+  R2_xz_ME_a <- max(0, 1 - (sd_M^2 * (1 - R2_a)) / (sd_X^2 * n_obs * std_err_a^2))
 
   R2_yz_ME_b <- max(0, (obs_r_ME_b^2 - R2_b) / (obs_r_ME_b^2 - 1))
-  R2_xz_ME_b <- max(0, 1 - (sd_Y^2 * (1 - R2_b)) / (sd_M^2 * (n_obs - n_covariates_b - 2) * std_err_b^2))
+  R2_xz_ME_b <- max(0, 1 - (sd_Y^2 * (1 - R2_b)) / (sd_M^2 * n_obs * std_err_b^2))
   
-  R_yx_ME_a <- obs_r_ME_a * sqrt(1 - R2_yz_ME_a) * sqrt(1 - R2_xz_ME_a) + sqrt(R2_yz_ME_a) * sqrt(R2_xz_ME_a)
-  R_yx_ME_b <- obs_r_ME_b * sqrt(1 - R2_yz_ME_b) * sqrt(1 - R2_xz_ME_b) + sqrt(R2_yz_ME_b) * sqrt(R2_xz_ME_b)
+  if (!missing(rXM)) {
+    R_yx_ME_a <- rXM
+  } else {
+    R_yx_ME_a <- obs_r_ME_a * sqrt(1 - R2_yz_ME_a) * sqrt(1 - R2_xz_ME_a) + sqrt(R2_yz_ME_a) * sqrt(R2_xz_ME_a)
+    }
+  
+  if (!missing(rMY)) {
+    R_yx_ME_b <- rMY
+  } else {
+    R_yx_ME_b <- obs_r_ME_b * sqrt(1 - R2_yz_ME_b) * sqrt(1 - R2_xz_ME_b) + sqrt(R2_yz_ME_b) * sqrt(R2_xz_ME_b)
+  }
 
   # correct for measurement error in obs_r_ME
   obs_r_a <- (R_yx_ME_a/(sqrt(rel_M) * sqrt(rel_X)) - sqrt(R2_yz_ME_a) / sqrt(rel_M) * sqrt(R2_xz_ME_a) / sqrt(rel_X)) /
